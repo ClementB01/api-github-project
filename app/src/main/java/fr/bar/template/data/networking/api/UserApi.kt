@@ -10,12 +10,12 @@ import retrofit2.http.GET
  */
 interface UserApi {
 
-    @GET(GET_FIRST_PAGE_GITHUBUSER_PATH)
+    @GET(GET_FIRST_PAGE_GITHUB_USER_PATH)
     suspend fun getFirstPageUsers(): Response<List<GitHubUser>>
 
 
     companion object {
-        const val GET_FIRST_PAGE_GITHUBUSER_PATH = "users"
+        const val GET_FIRST_PAGE_GITHUB_USER_PATH = "users"
     }
 
 }

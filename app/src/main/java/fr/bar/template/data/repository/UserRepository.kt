@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 private class UserRepositoryImpl(
     private  val api: UserApi
 ): UserRepository {
+
     override suspend fun getListUser(): List<GitHubUser>? {
         return withContext(Dispatchers.IO) {
             try {
