@@ -18,10 +18,11 @@ typealias OnUserClickListener = (view: View, gitHubUser: GitHubUser) -> Unit
 
 class UserViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(model: GitHubUser) {
+    fun bind(model: GitHubUser, onClick: OnUserClickListener) {
         itemView.apply {
-            this.holder_user_full_name.text = model.login
-            this.holder_user_location.text = model.url
+            this.setOnClickListener { onClick(it, model) }
+            this.holder_user_login.text = model.login
+            this.holder_user_type.text = "Compte de type : " + model.type
             Glide.with(this)
                 .load(model.avatar_url)
                 .into(this.holder_user_avatar)
