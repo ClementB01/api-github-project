@@ -110,4 +110,12 @@ class UserApiTest {
 
         return@runBlocking
     }
+
+    @Test
+    fun getUserDetails() = runBlocking {
+        api.getUserDetails("octocat").run {
+            Assert.assertTrue("Request must be a success", this.isSuccessful)
+            Assert.assertEquals("Should be octocat", octocat, this.body())
+        }
+    }
 }
