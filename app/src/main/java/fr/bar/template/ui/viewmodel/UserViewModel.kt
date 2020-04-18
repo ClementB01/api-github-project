@@ -11,6 +11,16 @@ open class UserViewModel(
     private  val repository: UserRepository
 ) :ViewModel() {
 
+    private var _data = mutableListOf<Int>()
+
+    val data: List<Int>
+        get() = _data
+
+    /**
+     *  Return the paginated list of User from the API
+     */
+    val usersPagedList = repository.getPaginatedList(viewModelScope)
+
     /**
      *  Return the list of User from the API
      */

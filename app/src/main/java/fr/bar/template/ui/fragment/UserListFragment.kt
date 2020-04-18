@@ -51,7 +51,12 @@ class UserListFragment: Fragment(), OnUserClickListener {
         view.user_list_recycler_view.apply {
             adapter = userAdapter
         }
-        userViewModel.getAllUsers {
+
+        /*userViewModel.getAllUsers {
+            userAdapter.submitList(it)
+        }*/
+
+        userViewModel.usersPagedList.observe(this) {
             userAdapter.submitList(it)
         }
     }
