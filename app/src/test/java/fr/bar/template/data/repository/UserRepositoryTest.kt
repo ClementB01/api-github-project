@@ -63,6 +63,16 @@ class UserRepositoryTest {
     }
 
     @Test
+    fun getListUserTest() = runBlocking {
+        val value = repository.getListUser()
+
+        Assert.assertTrue(
+            "Size should 0 or 20",
+            value?.count()?.equals(0) ?: false || value?.count()?.equals(30) ?: false
+        )
+    }
+
+    @Test
     fun getCharacterDetails() = runBlocking {
         val value = repository.getUserDetails("octocat")
         Assert.assertEquals("Should be octocat", octocat, value)
