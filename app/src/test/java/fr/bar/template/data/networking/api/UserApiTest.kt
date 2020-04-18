@@ -88,7 +88,30 @@ class UserApiTest {
     }
 
     @Test
-    fun getFirstPageUsers() = runBlocking {
+    fun getPaginatedListTest() = runBlocking {
+        // region Test initialisation
+        val count = 30
+        val firstUser = mojombo
+
+        // endregion
+
+        api.getAllUser(0).apply {
+            Assert.assertTrue("Request must be a success", this.isSuccessful)
+            val data: List<GitHubUser> =
+                this.body() ?: throw IllegalStateException("Body is null")
+            Assert.assertEquals(
+                "Same pagination info", count, data.size
+            )
+            Assert.assertEquals(
+                "First User must be Mojombo", firstUser, data.first()
+            )
+        }
+
+        return@runBlocking
+    }
+
+    @Test
+    fun getFirstPageUsersTest() = runBlocking {
 
         // region Test initialisation
         val count = 30
@@ -112,7 +135,7 @@ class UserApiTest {
     }
 
     @Test
-    fun getUserDetails() = runBlocking {
+    fun getUserDetailsTest() = runBlocking {
         api.getUserDetails("octocat").run {
             Assert.assertTrue("Request must be a success", this.isSuccessful)
             Assert.assertEquals("Should be octocat", octocat, this.body())

@@ -86,7 +86,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    fun getUserDetails() = runBlocking {
+    fun getUserDetailsTest() = runBlocking {
         val value = repository.getUserDetails("octocat")
         Assert.assertEquals("Should be octocat", octocat, value)
     }
