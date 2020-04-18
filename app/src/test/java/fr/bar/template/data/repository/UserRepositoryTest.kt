@@ -2,13 +2,14 @@ package fr.bar.template.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import fr.bar.template.data.model.GitHubUser
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
+import fr.bar.template.test.getBlockingValue
+import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.*
 
+@ObsoleteCoroutinesApi
+@ExperimentalCoroutinesApi
 class UserRepositoryTest {
 
     @get:Rule
@@ -60,6 +61,18 @@ class UserRepositoryTest {
     fun tearDown() {
         Dispatchers.resetMain()
         testDispatcher.close()
+    }
+
+    @Test
+    fun getPaginatedListTest() = runBlocking {
+        val value = repository.getPaginatedList(this).getBlockingValue(
+            timeOut = 10
+        )
+
+        Assert.assertTrue(
+            "Size should 0 or 20",
+            value?.count()?.equals(0) ?: false || value?.count()?.equals(20) ?: false
+        )
     }
 
     @Test
