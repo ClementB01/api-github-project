@@ -20,6 +20,15 @@ open class UserViewModel(
         }
     }
 
+    /**
+     * Call the api to fetch the details of a User from its USERNAME
+     */
+    fun getUserDetails(username: String, onSuccess: OnSuccess<GitHubUser>){
+        viewModelScope.launch {
+            repository.getUserDetails(username)?.run(onSuccess)
+        }
+    }
+
     companion object Factory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
