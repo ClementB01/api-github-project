@@ -1,11 +1,16 @@
 package fr.bar.app.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /**
  * This class define what is the model GitHubUser
  */
+
+@Entity(tableName = "githubuser")
 data class GitHubUser(
+    @PrimaryKey(autoGenerate = false)
     @SerializedName("login") val login: String,
     @SerializedName("id") val id: Int,
     @SerializedName("node_id") val node_id: String,

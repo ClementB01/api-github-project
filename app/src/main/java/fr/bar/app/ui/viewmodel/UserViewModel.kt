@@ -39,6 +39,18 @@ open class UserViewModel(
         }
     }
 
+    fun insertUserDB(gitHubUser: GitHubUser) {
+        viewModelScope.launch {
+            repository.insertGitHubUser(gitHubUser)
+        }
+    }
+
+    fun countGitHubUserDB() {
+        viewModelScope.launch {
+            repository.countGitHubUser()
+        }
+    }
+
     companion object Factory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {

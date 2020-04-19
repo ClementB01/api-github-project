@@ -4,11 +4,13 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import fr.bar.app.data.model.GitHubUser
+import fr.bar.app.ui.onClickItem
 import fr.bar.app.ui.widget.holder.UserViewHolder
-import fr.bar.app.ui.widget.holder.OnUserClickListener
+//import fr.bar.app.ui.widget.holder.OnUserClickListener
 
 class UserAdapter(
-    private val onUserClickListener: OnUserClickListener
+    //private val onUserClickListener: OnUserClickListener
+    private val listener: onClickItem
 ) : PagedListAdapter<GitHubUser, UserViewHolder>(Companion) {
 //) : ListAdapter<GitHubUser, UserViewHolder>(Companion) {
 
@@ -17,7 +19,7 @@ class UserAdapter(
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        getItem(position)?.run { holder.bind(this, onUserClickListener) }
+        getItem(position)?.run { holder.bind(this, listener/*onUserClickListener*/) }
     }
 
     companion object : DiffUtil.ItemCallback<GitHubUser>() {
