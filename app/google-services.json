@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "250013848344",
+    "firebase_url": "https://github-project-6c926.firebaseio.com",
+    "project_id": "github-project-6c926",
+    "storage_bucket": "github-project-6c926.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250013848344:android:310537db01bb71e65b846d",
+        "android_client_info": {
+          "package_name": "fr.bar.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250013848344-jnuvlk8a26memidn97hukdhss7h1odd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA67JGmJHhtRJosk4tOWJrBIw3sKFPVuPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250013848344-jnuvlk8a26memidn97hukdhss7h1odd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
