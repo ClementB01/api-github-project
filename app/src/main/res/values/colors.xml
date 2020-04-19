@@ -4,7 +4,7 @@
     <color name="color_primary_variant">#3700b3</color>
     <color name="color_secondary">#03dac6</color>
     <color name="color_secondary_variant">#018786</color>
-    <color name="color_background">#ffffff</color>
+    <color name="color_background">#fafafa</color>
     <color name="color_surface">#ffffff</color>
     <color name="color_error">#b00020</color>
     <color name="color_on_primary">#ffffff</color>
@@ -12,4 +12,11 @@
     <color name="color_on_background">#000000</color>
     <color name="color_on_surface">#000000</color>
     <color name="color_on_error">#ffffff</color>
+
+    <color name="color_subtitle1Bold">#de000000</color>
+    <color name="color_subtitle1SemiBold">#000000</color>
+    <color name="color_subtitle2">#212121</color>
+    <color name="color_caption">#747474</color>
+    <color name="color_headline6">#de000000</color>
+
 </resources>
