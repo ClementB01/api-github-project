@@ -66,11 +66,6 @@ private class UserRepositoryImpl(
         }
     }
 
-    override suspend fun countGitHubUser(): Int {
-        return withContext(Dispatchers.IO) {
-            dao.getCount()
-        }
-    }
 }
 
 interface UserRepository {
@@ -82,8 +77,6 @@ interface UserRepository {
     suspend fun getUserDetails(username: String): GitHubUser?
 
     suspend fun insertGitHubUser(gitHubUser: GitHubUser)
-
-    suspend fun countGitHubUser(): Int
 
     companion object {
         val instance: UserRepository by lazy {

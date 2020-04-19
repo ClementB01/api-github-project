@@ -24,11 +24,11 @@ open class UserViewModel(
     /**
      *  Return the list of User from the API
      */
-    fun getAllUsers(onSuccess: OnSuccess<List<GitHubUser>>){
+    /*fun getAllUsers(onSuccess: OnSuccess<List<GitHubUser>>){
         viewModelScope.launch {
             repository.getListUser()?.run(onSuccess)
         }
-    }
+    }*/
 
     /**
      * Call the api to fetch the details of a User from its USERNAME
@@ -42,12 +42,6 @@ open class UserViewModel(
     fun insertUserDB(gitHubUser: GitHubUser) {
         viewModelScope.launch {
             repository.insertGitHubUser(gitHubUser)
-        }
-    }
-
-    fun countGitHubUserDB() {
-        viewModelScope.launch {
-            repository.countGitHubUser()
         }
     }
 

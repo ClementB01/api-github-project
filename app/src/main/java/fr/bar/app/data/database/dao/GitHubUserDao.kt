@@ -12,9 +12,6 @@ interface GitHubUserDao {
     @Query("SELECT * FROM githubuser")
     fun selectAll(): List<GitHubUser>
 
-    @Query("SELECT COUNT(*) from githubuser")
-    fun getCount(): Int
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGitHubUser(vararg githubuser: GitHubUser)
 
