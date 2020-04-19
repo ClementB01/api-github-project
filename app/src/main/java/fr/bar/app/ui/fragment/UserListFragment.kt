@@ -47,13 +47,14 @@ class UserListFragment: Fragment(), onClickItem/*OnUserClickListener*/ {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as? MainActivity)?.supportActionBar?.apply {
-            this.setTitle(R.string.app_name)
+            this.setTitle(R.string.profils)
             this.setDisplayHomeAsUpEnabled(false)
         }
         // We need to inject the OnUserClickListener in the constructor of the adapter
         userAdapter = UserAdapter(this)
         view.user_list_recycler_view.apply {
             adapter = userAdapter
+            if (itemDecorationCount == 0) addItemDecoration(UserAdapter.OffsetDecoration())
         }
 
         /*userViewModel.getAllUsers {

@@ -13,45 +13,268 @@
         android:layout_height="wrap_content">
 
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/user_details_image_view"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_details_first_part_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            android:padding="24dp"
+            android:background="@color/color_background">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/user_details_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/full_names" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/user_detail_avatar_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                app:strokeColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/user_details_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_details_login"
-            tools:text="@tools:sample/cities" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/user_detail_avatar"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    tools:src="@tools:sample/avatars" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/user_details_url"
-            android:layout_width="wrap_content"
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_details_login"
+                style="@style/TextAppearance.MyTheme.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_avatar_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@tools:sample/full_names" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_details_mail"
+                style="@style/TextAppearance.MyTheme.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@tools:sample/full_names" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_details_second_part_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_details_location"
-            tools:text="@tools:sample/lorem" />
+            app:layout_constraintTop_toBottomOf="@id/user_details_first_part_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/color_background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_created_layout"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_created_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/creation_date"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_created"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_created_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_bio_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_created_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_bio_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/bio"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_bio"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_bio_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_location_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_bio_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_location_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/location"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_location"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_location_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_public_repo_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_location_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_public_repo_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/number_of_public_repositories"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_public_repo"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_public_repo_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_followers_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_public_repo_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_followers_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/number_of_followers"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_followers"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_followers_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_following_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_followers_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_following_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/number_of_following"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_following"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_following_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/user_details_blog_layout"
+                android:padding="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_details_following_layout"
+                android:background="@color/color_surface">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_blog_text"
+                    style="@style/customFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/blog"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/user_details_blog"
+                    style="@style/TextAppearance.MyTheme.Subtitle1SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/user_details_blog_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@tools:sample/full_names" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

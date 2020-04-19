@@ -27,13 +27,15 @@ class UserViewHolder private constructor(itemView: View) : RecyclerView.ViewHold
                 return@setOnLongClickListener true
             }
             this.holder_user_login.text = model.login
+
             if(model.email != null){
                 this.holder_user_mail.text = model.email
             } else {
-                this.holder_user_mail.text = "Pas de mail disponible"
+                this.holder_user_mail.text = context.getString(R.string.no_mail)
             }
 
-            this.holder_user_type.text = "Compte de type : " + model.type
+            this.holder_user_type.text = this.context.getString(R.string.type_account) + " " + model.type
+
             Glide.with(this)
                 .load(model.avatar_url)
                 .into(this.holder_user_avatar)

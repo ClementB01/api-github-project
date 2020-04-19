@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Project Template</string>
+    <string name="no_mail">No mail available</string>
+    <string name="type_account">Type of account : </string>
+    <string name="creation_date">Creation date : </string>
+    <string name="bio">Bio : </string>
+    <string name="location">Location : </string>
+    <string name="number_of_public_repositories">Number of public repositories : </string>
+    <string name="number_of_followers">Number of followers : </string>
+    <string name="number_of_following">Number of following : </string>
+    <string name="blog">Blog : </string>
+    <string name="details">Details</string>
+    <string name="profils">Profils</string>
 </resources>

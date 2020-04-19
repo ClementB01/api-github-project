@@ -5,22 +5,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    android:layout_marginBottom="8dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="fr.bar."
     tools:showIn="@layout/fragment_user_list">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/holder_user_root"
+        android:background="@color/color_surface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:padding="16dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/holder_user_avatar_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="23dp"
+            app:cardCornerRadius="24dp"
             app:strokeColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -39,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/holder_user_avatar_card"
             app:layout_constraintTop_toTopOf="@id/holder_user_avatar_card"
             tools:text="@tools:sample/full_names" />

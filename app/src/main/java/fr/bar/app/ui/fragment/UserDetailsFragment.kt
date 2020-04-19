@@ -14,6 +14,7 @@ import fr.bar.app.ui.activity.MainActivity
 import fr.bar.app.ui.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_details.*
 import kotlinx.android.synthetic.main.fragment_user_details.view.*
+import kotlinx.android.synthetic.main.holder_user.view.*
 import java.lang.IllegalStateException
 
 class UserDetailsFragment: Fragment() {
@@ -47,18 +48,30 @@ class UserDetailsFragment: Fragment() {
     private fun loadUser(view: View) {
         userViewModel.getUserDetails(userName) {
             (activity as? MainActivity)?.supportActionBar?.apply {
-                this.title = it.name
+                this.setTitle(R.string.details)
                 this.setDisplayHomeAsUpEnabled(true)
             }
             view.apply {
                 this.user_details_login.text = it.login
+
+                if(it.email != null){
+                    this.user_details_mail.text = it.email
+                } else {
+                    this.user_details_mail.text = context.getString(R.string.no_mail)
+                }
+
+                this.user_details_created.text = it.created_at
+                this.user_details_bio.text = it.bio
                 this.user_details_location.text = it.location
+                this.user_details_public_repo.text = it.public_repos.toString()
+                this.user_details_followers.text = it.followers.toString()
+                this.user_details_following.text = it.following.toString()
+                this.user_details_blog.text = it.blog
+
                 Glide.with(this)
                     .load(it.avatar_url)
-                    .into(this.user_details_image_view)
+                    .into(this.user_detail_avatar)
             }
-            view.user_details_url.text = it.url
-            //loadEpisodes(it)
         }
     }
 
